@@ -107,7 +107,7 @@ const About = () => {
             <div className="space-y-5 relative z-10">
               <h3 className="text-xs font-mono uppercase tracking-widest text-red-500 font-bold">Cast & Background</h3>
               <p className="text-lg md:text-xl font-medium text-white/90 leading-relaxed">
-                I am <span className="text-white font-bold drop-shadow">Revathi KM</span>, an AI &amp; ML engineering student at Saptagiri NPS University, graduating in 2028. I build AI applications, full-stack web tools, and native macOS experiences.
+                I am <span className="text-white font-bold drop-shadow">Revathi KM</span>, an AI &amp; ML engineering student at Sapthagiri NPS University, graduating in 2028. I build AI applications, full-stack web tools, and native macOS experiences.
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
                 My projects include an AI study companion with semantic search, a platform for skills mapping and analytics, and an interactive personal portfolio.
@@ -143,7 +143,7 @@ const About = () => {
               <ul className="space-y-3.5 text-sm text-white/80 font-light">
                 <li className="flex items-start gap-2.5">
                   <span className="text-red-500 font-bold">&#8250;</span>
-                  <span><strong className="text-white">Bachelor of Engineering — AI &amp; ML</strong>, Saptagiri NPS University. Expected graduation: 2028. Focus: machine learning, deep learning, neural networks, natural language processing, computer vision, and AI ethics.</span>
+                  <span><strong className="text-white">Bachelor of Engineering — AI &amp; ML</strong>, Sapthagiri NPS University. Expected graduation: 2028. Focus: machine learning, deep learning, neural networks, natural language processing, computer vision, and AI ethics.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-red-500 font-bold">&#8250;</span>

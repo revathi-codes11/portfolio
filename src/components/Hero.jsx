@@ -205,13 +205,13 @@ const Hero = () => {
             </h1>
 
             <div className="hero-anim-item flex items-center gap-3 text-xs font-mono text-red-400 font-bold">
-              <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/30 rounded text-red-500">Saptagiri NPS University · 2028</span>
+              <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/30 rounded text-red-500">Sapthagiri NPS University · 2028</span>
               <span className="text-white/40">•</span>
               <span>Python • React • TypeScript</span>
             </div>
 
             <p className="hero-anim-item text-sm md:text-base text-white/80 font-light leading-relaxed max-w-md drop-shadow">
-              Building AI applications and full-stack web tools. AI & ML engineering student at Saptagiri NPS University, graduating in 2028.
+              Building AI applications and full-stack web tools. AI & ML engineering student at Sapthagiri NPS University, graduating in 2028.
             </p>
 
             {/* Action Button Set */}
@@ -276,7 +276,7 @@ const Hero = () => {
             <div className="p-5 bg-black/80 backdrop-blur-2xl border border-white/15 rounded-xl shadow-2xl max-w-xs">
               <h3 className="text-xs font-mono uppercase tracking-widest text-red-500 font-bold mb-2">Education & Credentials</h3>
               <p className="text-xs text-white/80 leading-relaxed font-light">
-                Bachelor of Engineering in AI & ML, Saptagiri NPS University · Expected 2028. IBM Cybersecurity Fundamentals and IBM AI Fundamentals.
+                Bachelor of Engineering in AI & ML, Sapthagiri NPS University · Expected 2028. IBM Cybersecurity Fundamentals and IBM AI Fundamentals.
               </p>
             </div>
           </div>
