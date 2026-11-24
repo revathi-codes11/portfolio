@@ -1,11 +1,10 @@
+import LivingPortrait from './LivingPortrait';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import pictureImg from '../assets/Portfolio/revathi-hero.jpg';
 
 const Hero = () => {
   const sectionRef = useRef(null);
   const cardRef = useRef(null);
-  const glareRef = useRef(null);
   const spotlightRef = useRef(null);
   const cursorDotRef = useRef(null);
   const cursorRingRef = useRef(null);
@@ -57,11 +56,6 @@ const Hero = () => {
     const xToRing = gsap.quickTo(cursorRingRef.current, "x", { duration: 0.15, ease: "power3.out" });
     const yToRing = gsap.quickTo(cursorRingRef.current, "y", { duration: 0.15, ease: "power3.out" });
 
-    const xTilt = gsap.quickTo(card, "rotationY", { duration: 0.4, ease: "power3.out" });
-    const yTilt = gsap.quickTo(card, "rotationX", { duration: 0.4, ease: "power3.out" });
-    const glareX = gsap.quickTo(glareRef.current, "x", { duration: 0.3, ease: "power2.out" });
-    const glareY = gsap.quickTo(glareRef.current, "y", { duration: 0.3, ease: "power2.out" });
-
     const handleMouseMove = (e) => {
       const rect = section.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -81,20 +75,6 @@ const Hero = () => {
       xToRing(x - ringSize / 2);
       yToRing(y - ringSize / 2);
 
-      // Card 3D Perspective Calculations
-      const cardRect = card.getBoundingClientRect();
-      const cardCenterX = cardRect.left + cardRect.width / 2 - rect.left;
-      const cardCenterY = cardRect.top + cardRect.height / 2 - rect.top;
-
-      const rotateX = -((y - cardCenterY) / (cardRect.height / 2)) * 16;
-      const rotateY = ((x - cardCenterX) / (cardRect.width / 2)) * 16;
-
-      xTilt(rotateY);
-      yTilt(rotateX);
-
-      // Holographic Glare mapping
-      glareX((x - cardRect.left) - cardRect.width / 2);
-      glareY((y - cardRect.top) - cardRect.height / 2);
     };
 
     const handleMouseEnter = () => {
@@ -115,8 +95,6 @@ const Hero = () => {
         ease: "power2.inOut"
       });
       if (spotlightRef.current) gsap.to(spotlightRef.current, { opacity: 0, duration: 0.3 });
-      xTilt(0);
-      yTilt(0);
     };
 
     section.addEventListener("mousemove", handleMouseMove);
@@ -133,7 +111,7 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen bg-[#050505] overflow-hidden flex flex-col justify-between select-none cursor-none"
+      className="relative w-full min-h-screen lg:h-screen bg-[#050505] overflow-hidden flex flex-col justify-between select-none cursor-none"
     >
       <style>{`
         @keyframes marquee {
@@ -170,7 +148,7 @@ const Hero = () => {
       ></div>
 
       {/* 3. Main Content Layer */}
-      <div ref={contentRef} className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 h-full flex flex-col justify-between pt-24 pb-12">
+      <div ref={contentRef} className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 h-full flex flex-col justify-between gap-10 lg:gap-0 pt-24 pb-12">
 
         {/* Top Netflix Cinematic Badge */}
         <div className="hero-anim-item flex items-center justify-between w-full">
@@ -239,35 +217,10 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Center: Interactive 3D Holographic Tilt Developer Poster Frame */}
-          <div className="lg:col-span-4 flex justify-center perspective-[1200px]">
-            <div
-              ref={cardRef}
-              className="relative group transform-gpu transition-transform duration-100 ease-out will-change-transform"
-            >
-              {/* Cinematic Red Neon Back Glow */}
-              <div className="absolute -inset-3 bg-gradient-to-r from-red-600/70 via-rose-600/40 to-purple-600/20 rounded-3xl blur-3xl opacity-90 group-hover:opacity-100 animate-pulse duration-1000"></div>
-
-              {/* Poster Card with Glossy Sheen */}
-              <div className="relative w-[280px] md:w-[320px] p-3.5 bg-[#141414]/90 backdrop-blur-2xl rounded-2xl border border-red-600/40 shadow-[0_40px_80px_rgba(0,0,0,0.95)] overflow-hidden">
-
-                {/* Dynamic Specular Glare Layer */}
-                <div
-                  ref={glareRef}
-                  className="absolute inset-[-50%] w-[200%] h-[200%] bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none transform-gpu z-40"
-                ></div>
-
-                {/* Netflix Series Tag */}
-                <div className="absolute top-6 left-6 z-30 px-3 py-1 bg-red-600 text-white font-mono text-[10px] font-bold tracking-widest rounded shadow-xl">
-                  FEATURED DEV
-                </div>
-
-                <img
-                  src={pictureImg}
-                  alt="Revathi KM working at a desk"
-                  className="w-full h-[330px] md:h-[390px] object-cover object-[40%_center] rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
+          {/* Interactive living portrait, isolated from the surrounding layout. */}
+          <div className="lg:col-span-4 flex justify-center w-full">
+            <div ref={cardRef} className="relative w-full max-w-[420px]">
+              <LivingPortrait />
             </div>
           </div>
 

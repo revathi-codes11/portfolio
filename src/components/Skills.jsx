@@ -6,13 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const descriptions = {
-  'Frontend Engineering': 'React, TypeScript, responsive interfaces, 3D interactions, and animation.',
-  'Backend Engineering': 'Python and Node.js services, REST APIs, authentication, and application frameworks.',
+  'Frontend Engineering': 'Next.js, TypeScript, JavaScript, HTML5, CSS3, and Vite for web interfaces.',
+  'Backend Engineering': 'Python and Node.js services, REST APIs, FastAPI, Flask, and Django.',
   'Databases': 'Relational and document databases for web applications and analytics.',
   'Artificial Intelligence': 'Machine learning, NLP, semantic search, RAG, and LLM integration.',
-  'Native macOS Development': 'Native macOS experiences built with Swift, SwiftUI, and AppKit.',
-  'DevOps & Deployment': 'Version control, containers, deployment platforms, and automated workflows.',
-  'Tools & Productivity': 'Development, design, API testing, and local AI tooling.'
 };
 const skillCategories = Object.entries(descriptions).map(([title, desc]) => ({
   title, desc, tag: title,
@@ -112,7 +109,7 @@ const Skills = () => {
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=500%",
+          end: () => `+=${(skillCategories.length - 1) * 100}%`,
           pin: true,
           scrub: 1,
           onUpdate: (self) => {

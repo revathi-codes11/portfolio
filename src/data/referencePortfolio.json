@@ -1,23 +1,6 @@
 {
   "skills": [
     {
-      "id": "react",
-      "name": "React",
-      "category": "Frontend Engineering",
-      "expertise": "Expert",
-      "strength": 92,
-      "projects": [
-        "portfolio",
-        "idp"
-      ],
-      "displayOrder": 1,
-      "isPrimary": true,
-      "coursework": [
-        "Web Application Architecture"
-      ],
-      "description": "Core library leveraged for custom dashboard systems, visualizer interfaces, and layout states."
-    },
-    {
       "id": "nextjs",
       "name": "Next.js",
       "category": "Frontend Engineering",
@@ -43,69 +26,6 @@
         "Software Engineering Standards"
       ],
       "description": "Used to build strongly typed components, interfaces, and state channels, ensuring build stability."
-    },
-    {
-      "id": "tailwindcss",
-      "name": "Tailwind CSS",
-      "category": "Frontend Engineering",
-      "expertise": "Expert",
-      "strength": 90,
-      "projects": [
-        "portfolio",
-        "idp"
-      ],
-      "displayOrder": 4,
-      "description": "Utility-first CSS framework for rapid responsive styling implementations."
-    },
-    {
-      "id": "threejs",
-      "name": "Three.js",
-      "category": "Frontend Engineering",
-      "expertise": "Advanced",
-      "strength": 86,
-      "projects": [
-        "portfolio"
-      ],
-      "displayOrder": 5,
-      "coursework": [
-        "Computer Graphics & Rendering"
-      ],
-      "description": "WebGL interactive renders, custom GLTF character meshes, and responsive scroll cameras."
-    },
-    {
-      "id": "r3f",
-      "name": "React Three Fiber",
-      "category": "Frontend Engineering",
-      "expertise": "Advanced",
-      "strength": 84,
-      "projects": [],
-      "displayOrder": 6,
-      "description": "React wrapper interface binding Three.js coordinates inside standard virtual DOM components."
-    },
-    {
-      "id": "gsap",
-      "name": "GSAP Animations",
-      "category": "Frontend Engineering",
-      "expertise": "Expert",
-      "strength": 92,
-      "projects": [
-        "portfolio"
-      ],
-      "displayOrder": 7,
-      "coursework": [
-        "Interactive Design Patterns"
-      ],
-      "description": "Timeline orchestration, horizontal scroll sliding matrices, and smooth overlay panels."
-    },
-    {
-      "id": "framermotion",
-      "name": "Framer Motion",
-      "category": "Frontend Engineering",
-      "expertise": "Intermediate",
-      "strength": 82,
-      "projects": [],
-      "displayOrder": 8,
-      "description": "Declarative utility animating simple state switches and mount transitions."
     },
     {
       "id": "javascript",
@@ -159,16 +79,6 @@
       "description": "Modern frontend tooling optimized for hot module replacements and fast bundles."
     },
     {
-      "id": "shadcnui",
-      "name": "Shadcn UI",
-      "category": "Frontend Engineering",
-      "expertise": "Advanced",
-      "strength": 86,
-      "projects": [],
-      "displayOrder": 13,
-      "description": "Highly accessible, clean dashboard component structures built on Radix primitives."
-    },
-    {
       "id": "python",
       "name": "Python",
       "category": "Backend Engineering",
@@ -203,18 +113,6 @@
         "Distributed Web Computing"
       ],
       "description": "Runtime environment hosting asynchronous workspace APIs and database hooks."
-    },
-    {
-      "id": "expressjs",
-      "name": "Express.js",
-      "category": "Backend Engineering",
-      "expertise": "Advanced",
-      "strength": 86,
-      "projects": [
-        "idp"
-      ],
-      "displayOrder": 3,
-      "description": "Backend framework handling API routing interfaces and access tokens verification."
     },
     {
       "id": "fastapi",
@@ -258,30 +156,6 @@
       ],
       "displayOrder": 7,
       "description": "Designing standard HTTP APIs routes delivering JSON payloads with correct verbs."
-    },
-    {
-      "id": "jwt",
-      "name": "JWT Authentication",
-      "category": "Backend Engineering",
-      "expertise": "Advanced",
-      "strength": 86,
-      "projects": [
-        "idp"
-      ],
-      "displayOrder": 8,
-      "description": "Implementing JSON Web Token verification middleware profiles securing routes accesses."
-    },
-    {
-      "id": "prisma",
-      "name": "Prisma ORM",
-      "category": "Backend Engineering",
-      "expertise": "Advanced",
-      "strength": 84,
-      "projects": [
-        "idp"
-      ],
-      "displayOrder": 9,
-      "description": "Database client generating strongly typed queries schemas mapped to relational columns."
     },
     {
       "id": "postgresql",
