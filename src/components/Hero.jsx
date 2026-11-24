@@ -1,6 +1,8 @@
 import LivingPortrait from './LivingPortrait';
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+
+const RecruiterMode = lazy(() => import('./RecruiterMode'));
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -223,7 +225,7 @@ const Hero = () => {
             </p>
 
             {/* Action Button Set */}
-            <div className="hero-anim-item flex items-center gap-4 pt-2">
+            <div className="hero-anim-item flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
                 className="px-8 py-3.5 bg-white text-black font-bold text-xs uppercase tracking-widest rounded hover:bg-red-600 hover:text-white transition-all duration-300 shadow-[0_10px_35px_rgba(255,255,255,0.3)] flex items-center gap-2 hover:scale-105 active:scale-95"
@@ -244,6 +246,9 @@ const Hero = () => {
                 </svg>
                 Contact Me
               </a>
+              <Suspense fallback={<span className="inline-block h-12 w-40" aria-hidden="true" />}>
+                <RecruiterMode />
+              </Suspense>
             </div>
           </div>
 

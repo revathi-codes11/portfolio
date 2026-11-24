@@ -675,9 +675,9 @@
         "Description: An AI-powered study companion that predicts likely examination questions using intelligent document analysis.",
         "Problem Statement: Suboptimal preparation due to student difficulties in identifying key exam topics and patterns.",
         "Solution Overview: Built a Semantic-Match-Engine utilizing sentence embeddings and cosine similarity matches.",
-        "GitHub & Status: Under Development (70% progress). Repository hosted at github.com/Vishal-glitxh. Live demo under construction."
+        "GitHub & Status: Under Development (70% progress). GitHub profile: github.com/revathi-codes11. Live demo under construction."
       ],
-      "image": "/images/ai_study_companion_mockup.png"
+      "image": "/images/study-cover.webp"
     },
     {
       "num": "02",
@@ -689,9 +689,9 @@
         "Description: An intelligent employee development platform for skills mapping and talent visualization.",
         "Problem Statement: Difficulty in tracking employee potential, mapping workforce capabilities, and identifying growth paths.",
         "Solution Overview: Analyzes workforce skills using the 9-Box Talent Matrix mapping performance and potential nodes.",
-        "GitHub & Status: Under Development (55% progress). Repository hosted at github.com/Vishal-glitxh. Live demo under construction."
+        "GitHub & Status: Under Development (55% progress). GitHub profile: github.com/revathi-codes11. Live demo under construction."
       ],
-      "image": "/images/idp_mockup.png"
+      "image": "/images/idp-cover.webp"
     },
     {
       "num": "03",
@@ -703,9 +703,9 @@
         "Description: A premium, highly interactive portfolio featuring a 3D avatar that tracks user scroll and movement.",
         "Problem Statement: Displaying complex engineering skills and projects in a static, unengaging format.",
         "Solution Overview: Built the avatar with Three.js and added desktop scroll animations with GSAP.",
-        "GitHub & Status: Completed. Repository hosted at github.com/Vishal-glitxh. Live demo: https://vishalsuhas-dev.vercel.app."
+        "GitHub & Status: Completed. GitHub profile: github.com/revathi-codes11. Live demo: https://vishalsuhas-dev.vercel.app."
       ],
-      "image": "/images/portfolio_mockup.png"
+      "image": "/images/portfolio-cover.webp"
     }
   ]
 }

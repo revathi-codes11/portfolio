@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-xs font-mono text-white/60">
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/Vishal-glitxh"
+              href="https://github.com/revathi-codes11"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-500 transition-colors uppercase tracking-wider"
@@ -38,7 +38,7 @@ const Footer = () => {
               GitHub //
             </a>
             <a
-              href="https://www.linkedin.com/in/vishalsuhas"
+              href="https://www.linkedin.com/in/revathi-k-m-1705r0111"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-500 transition-colors uppercase tracking-wider"
@@ -46,7 +46,7 @@ const Footer = () => {
               LinkedIn //
             </a>
             <a
-              href="mailto:vishalsuhas0662@gmail.com"
+              href="mailto:revathikm0@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-500 transition-colors uppercase tracking-wider"

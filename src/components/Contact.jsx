@@ -41,7 +41,7 @@ const Contact = () => {
 
     const subject = encodeURIComponent(`Portfolio enquiry from ${formData.firstName} ${formData.lastName}`);
     const body = encodeURIComponent(`${formData.message}\n\nFrom ${formData.firstName} ${formData.lastName} (${formData.email})`);
-    window.location.href = `mailto:vishalsuhas0662@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:revathikm0@gmail.com?subject=${subject}&body=${body}`;
 
     setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
   };
@@ -169,7 +169,7 @@ const Contact = () => {
               {/* Right text & button */}
               <div className="flex-1 flex flex-col gap-8 text-xs text-white/50 font-light">
                 <p className="leading-relaxed max-w-[400px]">
-                  Contact: vishalsuhas0662@gmail.com · Bangalore, India. This form opens your email app so you can review and send your enquiry.
+                  Contact: revathikm0@gmail.com · Bangalore, India. This form opens your email app so you can review and send your enquiry.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
                   <p className="max-w-[250px] leading-relaxed">

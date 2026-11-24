@@ -1,10 +1,5 @@
 import reference from '../data/referencePortfolio.json';
-
-const slugs = {
-  'AI Study Companion': 'ai-study-companion',
-  'Intelligent Development Platform (IDP)': 'intelligent-development-platform',
-  'Personal Portfolio': 'personal-portfolio',
-};
+import { projectLinks } from '../data/recruiterProfile';
 
 const Projects = () => (
   <section id="projects" className="relative bg-[#0b0b0b] text-white py-24 md:py-32 px-6 md:px-12 overflow-hidden">
@@ -14,8 +9,10 @@ const Projects = () => (
       <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-12">FEATURED <span className="text-red-600">PROJECTS.</span></h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {reference.projects.map((project) => (
-          <article key={project.num} className="rounded-3xl border border-white/15 bg-[#141414] overflow-hidden hover:border-red-600/70 transition-colors shadow-2xl">
-            <img src={`/images/${project.image.split('/').pop()}`} alt={`${project.name} project preview`} loading="lazy" className="w-full aspect-video object-cover" />
+          <article key={project.num} className="group rounded-3xl border border-white/15 bg-[#141414] overflow-hidden hover:border-red-600/70 transition-colors shadow-2xl">
+            <div className="overflow-hidden border-b border-white/10 bg-[#151017]">
+              <img src={`/images/${project.image.split('/').pop()}`} alt={`${project.name} conceptual artwork`} width="1672" height="941" loading="lazy" decoding="async" className="w-full aspect-video object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.03]" />
+            </div>
             <div className="p-6 md:p-8 space-y-4">
               <p className="font-mono text-xs text-red-400">S01 E{project.num} · {project.category}</p>
               <h3 className="text-2xl md:text-3xl font-black">{project.name}</h3>
@@ -26,7 +23,7 @@ const Projects = () => (
               <ul className="space-y-3 text-sm text-white/70 leading-relaxed">
                 {project.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}
               </ul>
-              <a href={`https://vishalsuhas-dev.vercel.app/projects/${slugs[project.name]}`} target="_blank" rel="noopener noreferrer" className="inline-flex py-3 text-red-400 hover:text-red-300 font-bold text-sm">Explore project details ↗</a>
+              <a href={projectLinks[project.name]} target="_blank" rel="noopener noreferrer" className="inline-flex py-3 text-red-400 hover:text-red-300 font-bold text-sm">Explore project details ↗</a>
             </div>
           </article>
         ))}
