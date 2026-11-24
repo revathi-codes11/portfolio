@@ -1,9 +1,35 @@
 import LivingPortrait from './LivingPortrait';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 const Hero = () => {
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnOutsideClick = event => {
+      if (!headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    const closeOnEscape = event => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = event => { if (event.matches) setMenuOpen(false); };
+    document.addEventListener('pointerdown', closeOnOutsideClick);
+    document.addEventListener('keydown', closeOnEscape);
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsideClick);
+      document.removeEventListener('keydown', closeOnEscape);
+      desktop.removeEventListener('change', closeOnDesktop);
+    };
+  }, [menuOpen]);
   const cardRef = useRef(null);
   const spotlightRef = useRef(null);
   const cursorDotRef = useRef(null);
@@ -20,6 +46,7 @@ const Hero = () => {
     const section = sectionRef.current;
     const card = cardRef.current;
     const content = contentRef.current;
+    const cursorTargets = [cursorDotRef.current, cursorRingRef.current, spotlightRef.current];
     if (!section || !card || !content) return;
 
     // --- GSAP CINEMATIC ENTRANCE ANIMATION ---
@@ -105,11 +132,14 @@ const Hero = () => {
       section.removeEventListener("mousemove", handleMouseMove);
       section.removeEventListener("mouseenter", handleMouseEnter);
       section.removeEventListener("mouseleave", handleMouseLeave);
+      tl.revert();
+      gsap.killTweensOf(cursorTargets);
     };
   }, []);
 
   return (
     <section
+      id="home"
       ref={sectionRef}
       className="relative w-full min-h-screen lg:h-screen bg-[#050505] overflow-hidden flex flex-col justify-between select-none cursor-none"
     >
@@ -255,11 +285,11 @@ const Hero = () => {
       ></div>
 
       {/* --- NETFLIX-THEMED DEVELOPER NAVBAR --- */}
-      <header className="absolute top-0 left-0 z-50 w-full max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between pointer-events-auto">
+      <header ref={headerRef} className="absolute top-0 left-0 z-50 w-full max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between pointer-events-auto">
         <div className="text-2xl font-black text-red-600 tracking-tighter flex items-center gap-2 drop-shadow-[0_2px_15px_rgba(229,9,20,0.9)]">
           Revathi KM<span className="w-1.5 h-1.5 rounded-full bg-white inline-block"></span>
         </div>
-        <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-white/80">
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-white/80">
           <a href="#home" className="hover:text-red-500 transition-colors">Home</a>
           <a href="#about" className="hover:text-red-500 transition-colors">About</a>
           <a href="#expertise" className="hover:text-red-500 transition-colors">Expertise</a>
@@ -267,12 +297,38 @@ const Hero = () => {
           <a href="#projects" className="hover:text-red-500 transition-colors">Projects</a>
           <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
         </nav>
+        <div className="flex items-center gap-3">
+        <button
+          ref={menuButtonRef}
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setMenuOpen(open => !open)}
+          className="lg:hidden border border-white/30 rounded px-3 py-2 text-xs font-bold uppercase focus-visible:outline-2 focus-visible:outline-red-500"
+        >
+          {menuOpen ? 'Close' : 'Menu'}
+        </button>
         <a
           href="#contact"
+          onClick={() => setMenuOpen(false)}
           className="px-5 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 active:scale-95"
         >
           Hire Me
         </a>
+        </div>
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          hidden={!menuOpen}
+          className="lg:hidden absolute top-full left-6 right-6 rounded-xl border border-red-600/40 bg-[#141414] p-3 shadow-2xl max-h-[70vh] overflow-y-auto"
+        >
+          {['Home', 'About', 'Expertise', 'Skills', 'Projects', 'Contact'].map(label => (
+            <a key={label} href={`#${label.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="block rounded px-4 py-3 text-sm uppercase tracking-widest hover:bg-red-600/20 focus-visible:outline-2 focus-visible:outline-red-500">
+              {label}
+            </a>
+          ))}
+        </nav>
       </header>
     </section>
   );

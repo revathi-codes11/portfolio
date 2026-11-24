@@ -23,7 +23,7 @@ const Skills = () => {
   const textRefs = useRef([]);
 
   const handleScroll = (e) => {
-    if (window.innerWidth >= 769) return;
+    if (window.innerWidth >= 768) return;
     const container = e.target;
     const center = container.scrollLeft + container.offsetWidth / 2;
 
@@ -59,7 +59,7 @@ const Skills = () => {
     let ctx = gsap.context(() => {
       let mm = gsap.matchMedia();
 
-      mm.add("(min-width: 769px)", () => {
+      mm.add("(min-width: 768px)", () => {
         const updateCards = (p) => {
           cardsRef.current.forEach((card, i) => {
             if (!card) return;
@@ -119,7 +119,7 @@ const Skills = () => {
         });
       });
 
-      mm.add("(max-width: 768px)", () => {
+      mm.add("(max-width: 767px)", () => {
         cardsRef.current.forEach((card, i) => {
            if (card) {
              gsap.set(card, { clearProps: "x,y,z,rotation,scale,opacity,position" });

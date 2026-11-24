@@ -56,6 +56,7 @@ const CustomCursor = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      gsap.killTweensOf([dot, ring, spotlight]);
     };
   }, []);
 

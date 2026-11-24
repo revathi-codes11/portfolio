@@ -31,6 +31,7 @@ const MinimalPreloader = ({ onComplete }) => {
         duration: 0.5,
         ease: "power2.inOut"
       });
+    return () => tl.revert();
   }, [onComplete]);
 
   return (

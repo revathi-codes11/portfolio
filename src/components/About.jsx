@@ -13,7 +13,7 @@ const About = () => {
     if (!section) return;
 
     // --- Cinematic Stagger Entrance on Scroll ---
-    gsap.fromTo(
+    const animation = gsap.context(() => gsap.fromTo(
       cardRefs.current,
       { y: 80, opacity: 0, scale: 0.95 },
       {
@@ -29,7 +29,8 @@ const About = () => {
           toggleActions: "play none none reverse"
         }
       }
-    );
+    ), section);
+    const controller = new AbortController();
 
     // --- Interactive Magnetic Mouse Spotlight per Bento Card ---
     const cards = cardRefs.current;
@@ -44,10 +45,10 @@ const About = () => {
     cards.forEach((card) => {
       if (!card) return;
       const listener = (e) => handleMouseMove(e, card);
-      card.addEventListener('mousemove', listener);
-      return () => card.removeEventListener('mousemove', listener);
+      card.addEventListener('mousemove', listener, { signal: controller.signal });
     });
 
+    return () => { controller.abort(); animation.revert(); };
   }, []);
 
   const addToRefs = (el) => {

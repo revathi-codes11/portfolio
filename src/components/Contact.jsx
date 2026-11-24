@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Contact = () => {
@@ -93,9 +93,11 @@ const Contact = () => {
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-10">
                 <div className="relative">
+                  <label htmlFor="firstName" className="block mb-2 text-sm text-white/70">First name</label>
                   <input
                     type="text"
                     id="firstName"
+                    autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
                     placeholder="First Name"
@@ -104,9 +106,11 @@ const Contact = () => {
                   />
                 </div>
                 <div className="relative">
+                  <label htmlFor="lastName" className="block mb-2 text-sm text-white/70">Last name</label>
                   <input
                     type="text"
                     id="lastName"
+                    autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
                     placeholder="Last Name"
@@ -115,9 +119,11 @@ const Contact = () => {
                   />
                 </div>
                 <div className="relative">
+                  <label htmlFor="email" className="block mb-2 text-sm text-white/70">Email address</label>
                   <input
                     type="email"
                     id="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email Address"
@@ -130,6 +136,7 @@ const Contact = () => {
               {/* Right Column */}
               <div className="flex-1 flex flex-col">
                 <div className="relative h-full flex flex-col">
+                  <label htmlFor="message" className="block mb-2 text-sm text-white/70">Message</label>
                   <textarea
                     id="message"
                     value={formData.message}

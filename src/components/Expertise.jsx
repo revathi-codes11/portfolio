@@ -36,22 +36,25 @@ const Expertise = () => {
     const cards = cardRefs.current;
     if (!cards.length) return;
 
-    cards.forEach((card, index) => {
-      if (index === cards.length - 1) return; // Keep the top-most card fully focused
+    const animation = gsap.context(() => {
+      cards.forEach((card, index) => {
+        if (index === cards.length - 1) return; // Keep the top-most card fully focused
 
-      gsap.to(card, {
-        scale: 0.92 - index * 0.025,
-        y: -15 - index * 8,
-        filter: "blur(6px)",
-        opacity: 0.4,
-        scrollTrigger: {
-          trigger: card,
-          start: `top ${90 + index * 20}px`,
-          end: "bottom top",
-          scrub: true,
-        }
+        gsap.to(card, {
+          scale: 0.92 - index * 0.025,
+          y: -15 - index * 8,
+          filter: "blur(6px)",
+          opacity: 0.4,
+          scrollTrigger: {
+            trigger: card,
+            start: `top ${90 + index * 20}px`,
+            end: "bottom top",
+            scrub: true,
+          }
+        });
       });
-    });
+    }, containerRef);
+    const controller = new AbortController();
 
     // Magnetic mouse highlight per card
     const handleMouseMove = (e, card) => {
@@ -65,12 +68,12 @@ const Expertise = () => {
     cards.forEach((card) => {
       if (!card) return;
       const listener = (e) => handleMouseMove(e, card);
-      card.addEventListener('mousemove', listener);
-      return () => card.removeEventListener('mousemove', listener);
+      card.addEventListener('mousemove', listener, { signal: controller.signal });
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      controller.abort();
+      animation.revert();
     };
   }, []);
 
